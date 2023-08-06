@@ -11,17 +11,21 @@ export const Navbar = () => {
 				<span className="navbar-brand mb-0 h1">React Boilerplate</span>
 			</Link>
 			<div className="ml-auto">
-			<div class="btn-group" role="group">
-    <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-      Dropdown
-    </button>
-    <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-      {store.favorites.length ? store.favorites.map((item,index)=>{
-		{console.log(item)}
-		<li key={index}>{item}</li>
-	  }):null}
-    </ul>
-  </div>
+			<div className="btn-group" role="group">
+                    <button id="btnGroupDrop1" type="button" className="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                        Dropdown
+                    </button>
+                    <ul className="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                        {store.favorites.length ? (
+                            store.favorites.map((item, index) => {
+                                console.log(item, "HEERRE"); // This console.log should work fine
+                                return <li key={index}>{item}</li>; // Adding a 'key' prop to each list item
+                            })
+                        ) : (
+                            <li>No Favorites</li>
+                        )}
+                    </ul>
+                </div>
 			</div>
 		</nav>
 	);
