@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router'
 
-export default function CharacterDescription() {
-  const [character, setCharacter] = useState([])
+export default function StarshipsDescription() {
+  const [starship, setStarship] = useState([])
   const { id } = useParams()
   useEffect(() => {
-    fetch("https://swapi.tech/api/people/" + id)
+    fetch("https://swapi.tech/api/starships" + id)
       .then((response) => response.json())
       .then((data) => {
-        setCharacter(data.result)
+        setStarship(data.result)
       })
   })
   return (
@@ -17,14 +17,12 @@ export default function CharacterDescription() {
         <div className='info-top'>
           <img/>
           <div>
-            <h2>{character.name}</h2>
-            <p>{character.description}</p>
+            <h2>{starship.model}</h2>
+            <p>{starship.manufacturer}</p>
           </div>
         </div>
         <div className='info-bot'>
-          <p>
-            Haircolor{character.hair_color}
-          </p>
+        
           
         </div>
       </div>

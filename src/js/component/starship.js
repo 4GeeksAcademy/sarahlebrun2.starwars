@@ -1,20 +1,20 @@
 import React, { useEffect, useState } from 'react'
 import Card from './card'
 
-export default function Character() {
-    const[character,setCharacter]= useState([])
+export default function Starship() {
+    const[starships,setStarship]= useState([])
     useEffect(()=>{
-      fetch("https://swapi.tech/api/people")
+      fetch("https://swapi.tech/api/starships")
               .then((response)=> response.json())
               .then((data)=> {
-                  setCharacter(data.results)
+                  setStarship(data.results)
               })
           })
   return (
     <div className='d-flex overflow-auto w-75 mx-auto'>
-      {character.map((person,index)=>(
+      {starships.map((starship,index)=>(
         <div key={index}>
-        <Card title={person.name} type={"character"}id={person.uid}/>
+        <Card title={starship.name} type={"starship"}id={starship.uid}/>
         </div>
       ))}
     </div>
