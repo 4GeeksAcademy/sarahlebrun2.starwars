@@ -5,10 +5,10 @@ export default function StarshipsDescription() {
   const [starship, setStarship] = useState([])
   const { id } = useParams()
   useEffect(() => {
-    fetch("https://swapi.tech/api/starships" + id)
+    fetch("https://swapi.tech/api/starships/" + id)
       .then((response) => response.json())
       .then((data) => {
-        setStarship(data.result)
+        setStarship(data.result.properties)
       })
   })
   return (
@@ -17,7 +17,7 @@ export default function StarshipsDescription() {
         <div className='info-top'>
           <img/>
           <div>
-            <h2>{starship.model}</h2>
+            <h2>{starship.name}</h2>
             <p>{starship.manufacturer}</p>
           </div>
         </div>
